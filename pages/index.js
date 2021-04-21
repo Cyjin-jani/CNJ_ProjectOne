@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // jsconfig => absolute path setting
-import Navbar from 'components/Navbar';
+import Layout from 'components/Layout';
 import Newsletter from 'components/Newsletter';
 import ResourceHighlight from 'components/ResourceHilight';
 import ResourceList from 'components/ResourceList';
@@ -11,13 +11,12 @@ const HomePage = () => {
   
 
   return (
-    <>
-      <Navbar />
-      <ResourceHighlight />
-      <Newsletter />
-      <ResourceList />
-      <Footer />      
-    </>
+      <Layout>
+        <ResourceHighlight />
+        <Newsletter />
+        <ResourceList />
+        <Footer />
+      </Layout>
   )
 }
 
