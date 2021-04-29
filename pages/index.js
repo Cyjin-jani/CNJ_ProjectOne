@@ -6,6 +6,8 @@ import ResourceHighlight from 'components/ResourceHilight';
 import ResourceList from 'components/ResourceList';
 import Footer from 'components/Footer';
 
+import { resources } from 'api/data';
+
 
 const HomePage = () => {
   
@@ -15,6 +17,7 @@ const HomePage = () => {
         <ResourceHighlight />
         <Newsletter />
         <ResourceList />
+        { JSON.stringify(resources)}
         <Footer />
       </Layout>
   )
