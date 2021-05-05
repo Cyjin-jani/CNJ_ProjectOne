@@ -6,21 +6,32 @@ import ResourceHighlight from 'components/ResourceHilight';
 import ResourceList from 'components/ResourceList';
 import Footer from 'components/Footer';
 
-import { resources } from 'api/data';
 
 
-const HomePage = () => {
+
+const HomePage = ({resources}) => {
   
-
+  
   return (
       <Layout>
-        <ResourceHighlight />
+        <ResourceHighlight resources={resources.slice(0, 2)} />
         <Newsletter />
-        <ResourceList />
-        { JSON.stringify(resources)}
+        <ResourceList resources={resources.slice(2)} />
         <Footer />
       </Layout>
   )
+}
+
+export async function getStaticProps() {
+  
+  const resData = await fetch("http://localhost:3000/api/resources");
+  const data = await resData.json();
+
+  return {
+    props: {
+      resources: data
+    }
+  }
 }
 
 
