@@ -1,5 +1,11 @@
-import data from './data.json';
+// export default function (req, res) {
+//   res.send('Work in progress!');
+// }
 
-export default function(req, res) {
+// CORS 해결책 1
+export default async function (req, res) {
+  const dataRes = await fetch('http://localhost:3001/api/resources');
+  const data = await dataRes.json();
+
   res.send(data);
 }
