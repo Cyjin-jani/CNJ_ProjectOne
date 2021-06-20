@@ -1,4 +1,5 @@
 import Layout from 'components/Layout';
+import axios from 'axios';
 import { useState } from 'react';
 
 const DEFAULT_DATA = {
@@ -12,8 +13,10 @@ const DEFAULT_DATA = {
 const ResourceCreate = () => {
   const [form, setForm] = useState(DEFAULT_DATA);
 
-  const submitForm = () => {
-    alert(JSON.stringify(form));
+  const submitForm = (e) => {
+    // alert(JSON.stringify(form));
+    e.preventDefault();
+    axios.post('/api/resources', form);
   };
 
   const resetForm = () => {

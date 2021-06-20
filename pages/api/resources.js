@@ -4,8 +4,13 @@
 
 // CORS 해결책 1
 export default async function (req, res) {
-  const dataRes = await fetch('http://localhost:3001/api/resources');
-  const data = await dataRes.json();
+  if (req.method === 'GET') {
+    const dataRes = await fetch('http://localhost:3001/api/resources');
+    const data = await dataRes.json();
 
-  res.send(data);
+    return res.send(data);
+  } else if (req.method === 'POST') {
+    console.log('req body', req.body);
+    return res.send('data has been received!');
+  }
 }
